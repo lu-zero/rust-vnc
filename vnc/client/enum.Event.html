@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `Event` enum in crate `vnc`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, Event">
+
+    <title>vnc::client::Event - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../../main.css">
+    
+
+    
+    
+</head>
+<body class="rustdoc">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        <p class='location'><a href='../index.html'>vnc</a>::<wbr><a href='index.html'>client</a></p><script>window.sidebarCurrent = {name: 'Event', ty: 'enum', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content enum">
+<h1 class='fqn'><span class='in-band'>Enum <a href='../index.html'>vnc</a>::<wbr><a href='index.html'>client</a>::<wbr><a class='enum' href=''>Event</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a id='src-1155' class='srclink' href='../../src/vnc/src/client.rs.html#29-39' title='goto source code'>[src]</a></span></h1>
+<pre class='rust enum'>pub enum Event {
+    Disconnected(<a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='enum' href='../../vnc/enum.Error.html' title='vnc::Error'>Error</a>&gt;),
+    Resize(<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u16.html'>u16</a>,&nbsp;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u16.html'>u16</a>),
+    SetColourMap {
+        first_colour: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u16.html'>u16</a>,
+        colours: <a class='struct' href='https://doc.rust-lang.org/nightly/collections/vec/struct.Vec.html' title='collections::vec::Vec'>Vec</a>&lt;<a class='struct' href='../../vnc/struct.Colour.html' title='vnc::Colour'>Colour</a>&gt;,
+    },
+    PutPixels(<a class='struct' href='../../vnc/struct.Rect.html' title='vnc::Rect'>Rect</a>,&nbsp;<a class='struct' href='https://doc.rust-lang.org/nightly/collections/vec/struct.Vec.html' title='collections::vec::Vec'>Vec</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u8.html'>u8</a>&gt;),
+    CopyPixels {
+        src: <a class='struct' href='../../vnc/struct.Rect.html' title='vnc::Rect'>Rect</a>,
+        dst: <a class='struct' href='../../vnc/struct.Rect.html' title='vnc::Rect'>Rect</a>,
+    },
+    EndOfFrame,
+    SetCursor {
+        size: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>(</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u16.html'>u16</a>, <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u16.html'>u16</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>)</a>,
+        hotspot: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>(</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u16.html'>u16</a>, <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u16.html'>u16</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>)</a>,
+        pixels: <a class='struct' href='https://doc.rust-lang.org/nightly/collections/vec/struct.Vec.html' title='collections::vec::Vec'>Vec</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u8.html'>u8</a>&gt;,
+        mask_bits: <a class='struct' href='https://doc.rust-lang.org/nightly/collections/vec/struct.Vec.html' title='collections::vec::Vec'>Vec</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u8.html'>u8</a>&gt;,
+    },
+    Clipboard(<a class='struct' href='https://doc.rust-lang.org/nightly/collections/string/struct.String.html' title='collections::string::String'>String</a>),
+    Bell,
+}</pre><h2 class='variants'>Variants</h2>
+<span id='variant.Disconnected' class='variant'><code>Disconnected(<a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='enum' href='../../vnc/enum.Error.html' title='vnc::Error'>Error</a>&gt;)</code></span><span id='variant.Resize' class='variant'><code>Resize(<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u16.html'>u16</a>,&nbsp;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u16.html'>u16</a>)</code></span><span id='variant.SetColourMap' class='variant'><code>SetColourMap</code></span><h3 class='fields'>Fields</h3>
+
+                           <table><tr><td id='variant.SetColourMap.field.first_colour'><code>first_colour:&nbsp;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u16.html'>u16</a></code></td><td></td></tr><tr><td id='variant.SetColourMap.field.colours'><code>colours:&nbsp;<a class='struct' href='https://doc.rust-lang.org/nightly/collections/vec/struct.Vec.html' title='collections::vec::Vec'>Vec</a>&lt;<a class='struct' href='../../vnc/struct.Colour.html' title='vnc::Colour'>Colour</a>&gt;</code></td><td></td></tr></table><span id='variant.PutPixels' class='variant'><code>PutPixels(<a class='struct' href='../../vnc/struct.Rect.html' title='vnc::Rect'>Rect</a>,&nbsp;<a class='struct' href='https://doc.rust-lang.org/nightly/collections/vec/struct.Vec.html' title='collections::vec::Vec'>Vec</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u8.html'>u8</a>&gt;)</code></span><span id='variant.CopyPixels' class='variant'><code>CopyPixels</code></span><h3 class='fields'>Fields</h3>
+
+                           <table><tr><td id='variant.CopyPixels.field.src'><code>src:&nbsp;<a class='struct' href='../../vnc/struct.Rect.html' title='vnc::Rect'>Rect</a></code></td><td></td></tr><tr><td id='variant.CopyPixels.field.dst'><code>dst:&nbsp;<a class='struct' href='../../vnc/struct.Rect.html' title='vnc::Rect'>Rect</a></code></td><td></td></tr></table><span id='variant.EndOfFrame' class='variant'><code>EndOfFrame</code></span><span id='variant.SetCursor' class='variant'><code>SetCursor</code></span><h3 class='fields'>Fields</h3>
+
+                           <table><tr><td id='variant.SetCursor.field.size'><code>size:&nbsp;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>(</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u16.html'>u16</a>, <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u16.html'>u16</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>)</a></code></td><td></td></tr><tr><td id='variant.SetCursor.field.hotspot'><code>hotspot:&nbsp;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>(</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u16.html'>u16</a>, <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u16.html'>u16</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>)</a></code></td><td></td></tr><tr><td id='variant.SetCursor.field.pixels'><code>pixels:&nbsp;<a class='struct' href='https://doc.rust-lang.org/nightly/collections/vec/struct.Vec.html' title='collections::vec::Vec'>Vec</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u8.html'>u8</a>&gt;</code></td><td></td></tr><tr><td id='variant.SetCursor.field.mask_bits'><code>mask_bits:&nbsp;<a class='struct' href='https://doc.rust-lang.org/nightly/collections/vec/struct.Vec.html' title='collections::vec::Vec'>Vec</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u8.html'>u8</a>&gt;</code></td><td></td></tr></table><span id='variant.Clipboard' class='variant'><code>Clipboard(<a class='struct' href='https://doc.rust-lang.org/nightly/collections/string/struct.String.html' title='collections::string::String'>String</a>)</code></span><span id='variant.Bell' class='variant'><code>Bell</code></span><h2 id='implementations'>Trait Implementations</h2><h3 class='impl'><span class='in-band'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html' title='core::fmt::Debug'>Debug</a> for <a class='enum' href='../../vnc/client/enum.Event.html' title='vnc::client::Event'>Event</a></code></span><span class='out-of-band'><div class='ghost'></div><a id='src-1128' class='srclink' href='../../src/vnc/src/client.rs.html#28' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.fmt' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html#tymethod.fmt' class='fnname'>fmt</a>(&amp;self, __arg_0: &amp;mut <a class='struct' href='https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html' title='core::fmt::Formatter'>Formatter</a>) -&gt; <a class='type' href='https://doc.rust-lang.org/nightly/core/fmt/type.Result.html' title='core::fmt::Result'>Result</a></code></h4>
+<div class='docblock'><p>Formats the value using the given formatter.</p>
+</div></div></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                    <dt>+</dt>
+                    <dd>Collapse/expand all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../../";
+        window.currentCrate = "vnc";
+        window.playgroundUrl = "";
+    </script>
+    <script src="../../jquery.js"></script>
+    <script src="../../main.js"></script>
+    
+    <script defer src="../../search-index.js"></script>
+</body>
+</html>
